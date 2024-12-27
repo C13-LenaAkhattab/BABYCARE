@@ -1,5 +1,7 @@
 const UserModel = require("../../models/userSchema");
 const bcrypt=require("bcrypt")
+const jwt = require("jsonwebtoken");
+
 
 const register = (req, res) => {
   const { email, password, firstName } = req.body;
@@ -21,36 +23,68 @@ const register = (req, res) => {
     });
 };
 
-const login = (req, res) => {
-  const { email, password } = req.body;
 
-  UserModel.findOne({ email })
-    .then((result) => {
+
+const login = (req, res) => {
+  const { password, email } = req.body;
+
+  UserModel.findOne({ email: email })
+    .populate("Role") 
+    .then(async (result) => {
       if (!result) {
-        res.status(400).json({
+        return res.status(403).json({
           success: false,
-          message: "Email not found",
+          message: `The email doesn't exist or the password you’ve entered is incorrect`,
         });
-      } else {
-        if (result.password === password) {
-          res.status(200).json({
-            success: true,
-            message: "login successfully"
-          })
-        } else {
-          res.status(400).json({
+      }
+
+      try {
+        
+        const isPasswordValid = await bcrypt.compare(password, result.password);
+        if (!isPasswordValid) {
+          return res.status(403).json({
             success: false,
-            message: "Wrong email or password"
+            message: `The email doesn't exist or the password you’ve entered is incorrect`,
           });
         }
+
+
+        const payload = {
+          userId: result._id,
+          user: result.firstName,
+          role: result.role,
+        };
+
+        const options = {
+          expiresIn: "60m", 
+        };
+
+        const token = jwt.sign(payload, process.env.SECRET, options);
+
+        return res.status(200).json({
+          success: true,
+          message: `Valid login credentials`,
+          token: token,
+          userId: result._id,
+        });
+      } catch (error) {
+        return res.status(500).json({
+          success: false,
+          message: `Error validating credentials`,
+          error: error.message,
+        });
       }
     })
     .catch((err) => {
-      res.status(400).json({
+      res.status(500).json({
         success: false,
-        message: err,
+        message: `Server Error`,
+        err: err.message,
       });
     });
 };
+
+
+
 
 module.exports = { register, login };
