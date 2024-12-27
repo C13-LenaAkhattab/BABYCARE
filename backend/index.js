@@ -13,10 +13,12 @@ app.use(express.json());
 // Use the usersRouter for any routes starting with "/users"
 app.use("/users", usersRouter);
 
+
+
+
+
 // Handle undefined routes
 app.use("*", (req, res) => res.status(404).json("No content at this path"));
-
-
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
