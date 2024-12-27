@@ -16,8 +16,7 @@ const UserSchema = new mongoose.Schema({
   role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" },
 });
 
-const UserModel = mongoose.model("User", UserSchema);
-module.exports = UserModel;
+
 
 
 UserSchema.pre('save', async function(next) {
@@ -28,4 +27,5 @@ UserSchema.pre('save', async function(next) {
   next()
 });
 
-
+const UserModel = mongoose.model("User", UserSchema);
+module.exports = UserModel;

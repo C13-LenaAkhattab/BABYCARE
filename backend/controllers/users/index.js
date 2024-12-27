@@ -29,7 +29,7 @@ const login = (req, res) => {
   const { password, email } = req.body;
 
   UserModel.findOne({ email: email })
-    .populate("Role") 
+    // .populate("Role") 
     .then(async (result) => {
       if (!result) {
         return res.status(403).json({
