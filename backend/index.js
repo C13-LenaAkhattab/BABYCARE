@@ -4,6 +4,7 @@ require('dotenv').config();
 require("./models/db"); 
 const usersRouter = require("./routes/users"); 
 const rolesRouter=require("./routes/roles")
+const foodRouter=require("./routes/food")
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/users", usersRouter);
 app.use("/roles" , rolesRouter)
+app.use("/food", foodRouter)
 
 
 
