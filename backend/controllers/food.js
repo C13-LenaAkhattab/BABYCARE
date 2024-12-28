@@ -1,8 +1,8 @@
 const FoodModel = require("../models/FoodPost")
 
 const CreateFood=(req , res)=>{
-const {name , recipe , ingredients,describtion, stage}=req.body
-const newRecipe=new FoodModel({name , recipe , ingredients,describtion, stage})
+const {name , recipe , ingredients,describtion, stage ,benefits}=req.body
+const newRecipe=new FoodModel({name , recipe , ingredients,describtion, stage, benefits})
 newRecipe
 .save()
 .then((result)=>{
