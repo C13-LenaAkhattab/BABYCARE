@@ -1,4 +1,4 @@
-const UserModel = require("../../models/userSchema");
+const UserModel = require("../models/userSchema");
 const bcrypt=require("bcrypt")
 const jwt = require("jsonwebtoken");
 
@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const register = (req, res) => {
   const { email, password, firstName } = req.body;
 
-  const newUser = new UserModel({ email, password, firstName });
+  const newUser = new UserModel({ email, password, firstName, role:"677039050dc1d38e298de85f"});
   newUser
     .save()
     .then((result) => {
@@ -29,12 +29,12 @@ const login = (req, res) => {
   const { password, email } = req.body;
 
   UserModel.findOne({ email: email })
-    // .populate("Role") 
-    .then(async (result) => {
+  .populate("role", "-_id -__v")
+  .then(async (result) => {
       if (!result) {
         return res.status(403).json({
           success: false,
-          message: `The email doesn't exist or the password you’ve entered is incorrect`,
+          message: `The email doesn't exist or the password you have entered is incorrect`,
         });
       }
 
@@ -44,7 +44,7 @@ const login = (req, res) => {
         if (!isPasswordValid) {
           return res.status(403).json({
             success: false,
-            message: `The email doesn't exist or the password you’ve entered is incorrect`,
+            message: `The email doesn't exist or the password you have entered is incorrect`,
           });
         }
 
@@ -66,6 +66,7 @@ const login = (req, res) => {
           message: `Valid login credentials`,
           token: token,
           userId: result._id,
+  
         });
       } catch (error) {
         return res.status(500).json({

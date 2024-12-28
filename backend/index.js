@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 require('dotenv').config();
-require("./models/db");  // Assuming this file connects to MongoDB
-const usersRouter = require("./routes/users");  // Fixed the import here
+require("./models/db"); 
+const usersRouter = require("./routes/users"); 
+const rolesRouter=require("./routes/roles")
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,8 +11,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Use the usersRouter for any routes starting with "/users"
 app.use("/users", usersRouter);
+app.use("/roles" , rolesRouter)
 
 
 
