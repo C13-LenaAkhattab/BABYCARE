@@ -60,12 +60,14 @@ const login = (req, res) => {
         };
 
         const token = jwt.sign(payload, process.env.SECRET, options);
+        
 
         return res.status(200).json({
           success: true,
           message: `Valid login credentials`,
           token: token,
           userId: result._id,
+          
   
         });
       } catch (error) {
