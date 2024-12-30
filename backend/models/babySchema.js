@@ -5,11 +5,6 @@ const BabySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   ageInMonths: {
     type: Number,
     required: true, 

@@ -7,6 +7,7 @@ const rolesRouter=require("./routes/roles")
 const foodRouter=require("./routes/food")
 const adviceRouter=require("./routes/advice")
 const milestoneRouter=require("./routes/milestone")
+const babyRouter=require("./routes/baby")
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,6 +20,7 @@ app.use("/roles" , rolesRouter)
 app.use("/food", foodRouter)
 app.use("/advice", adviceRouter)
 app.use("/milestone", milestoneRouter)
+app.use("/baby",babyRouter)
 
 
 
