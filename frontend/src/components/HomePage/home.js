@@ -1,9 +1,11 @@
 import "./style.css"
 import React from 'react'
+import Navbar from '../shared components/Navbar'
 
 const Home = () => {
   return (
-    <div>HOME</div>
+
+    <Navbar/>
   )
 }
 

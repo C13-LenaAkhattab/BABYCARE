@@ -4,7 +4,7 @@ const RoutineModel=require("../models/routineSchema")
 const addRoutine = (req, res) => {
     const { babyId, activities } = req.body;
 
-    const newRoutine = new Routine({
+    const newRoutine = new RoutineModel({
         babyId,
         activities,
     });

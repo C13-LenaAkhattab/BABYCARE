@@ -25,7 +25,7 @@ const postQuestion = (req, res) => {
 
 const postAnswer = (req, res) => {
     const { questionId, answer } = req.body;
-    const userId = req.token.id;
+    const userId = req.token.userId;
 
     ForumModel.findById(questionId)
         .then(question => {
