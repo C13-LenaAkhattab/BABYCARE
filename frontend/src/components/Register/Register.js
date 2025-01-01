@@ -1,13 +1,13 @@
 import { React, useState, useContext } from "react";
 import axios from "axios";
+import { AppContext } from "../../App";
 
 const Register = () => {
+  const {message, setMessage, messageType,setMessageType}=useContext(AppContext)
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
-
+  
   const PostUser = () => {
     axios
       .post(`http://localhost:5000/users/register`, {

@@ -4,8 +4,10 @@ const Tickets = () => {
   return (
 <>
 <div className='tickets'>
-<button className='About'></button>
-<button className='About'></button>
+<button className='Start now'></button>
+<button className='About us'></button>
+<button className='Contact us'></button>
+
 </div>
 
 </>  )

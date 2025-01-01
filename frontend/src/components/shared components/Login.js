@@ -1,10 +1,11 @@
-import {React, createContext, useContext } from 'react'
+import {React, createContext, useContext, useState } from 'react'
 import axios from 'axios'
 // import { useNavigate } from "react-router-dom";
-// import { AppContext } from "../../App";
+import { AppContext } from "../../App";
 
-const {TokenState,setTokenState,isLoggedIn, setisLoggedIn}=useContext()
 const Login = () => {
+    const {message, setMessage,TokenState,setTokenState,isLoggedIn, setisLoggedIn, setUserId,userId, setMessageType,messageType}=useContext(AppContext)
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
