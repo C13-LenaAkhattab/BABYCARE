@@ -1,12 +1,24 @@
-import React from "react";
+import {React, createContext, useContext,useState } from "react";
 import "./App.css";
-import Home from "./components/HomePage/home"; 
+import Home from "./components/HomePage/home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// import { Route, Routes, useNavigate } from "react-router-dom";
+
+export const AppContext = createContext();
 
 const App = () => {
+  const [TokenState, setTokenState] = useState(
+    localStorage.getItem("Token") || "")
+  const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
+  const [isLoggedIn, setisLoggedIn] = useState(!!TokenState);
+
   return (
-    <div className="App">
-      <Home /> 
-    </div>
+    <AppContext.Provider value={{TokenState,setTokenState,isLoggedIn, setisLoggedIn}}>
+      <div className="App">
+        <Home />
+      </div>
+    </AppContext.Provider>
   );
 };
 
