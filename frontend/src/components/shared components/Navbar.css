@@ -1,29 +1,31 @@
 .bg-first-color {
-  background-color: #cabfab; 
+  background-color: #f9ecec; 
 }
 
 .bg-second-color {
-  background-color: #6a0000; 
+  background-color: #f0d9da; 
 }
 
 .bg-third-color {
-  background-color: #beceb0; 
+  background-color: #c8d9eb; 
 }
 
 .bg-fourth-color {
-  background-color: #52575d; 
+  background-color: #ecf2f9; 
 }
 
 .text-first-color {
-  color: #cabfab;
+  color: #f9ecec;
 }
 
 .text-second-color {
-  color: #dfd8c8;
+  color: #241f36;
+  font-weight:bolder;
+  font-size:x-large;
 }
 
 .text-third-color {
-  color: #41444b;
+  color: #d7d9df;
 }
 
 .text-fourth-color {
@@ -44,7 +46,8 @@
 }
 
 .offcanvas-body {
-  font-family: 'Comic Sans MS', 'Chalkboard', cursive;
+  font-family: "Indie Flower", cursive;
+
 }
 
 .navbar-toggler {
@@ -52,5 +55,5 @@
 }
 
 .btn {
-  font-family: 'Comic Sans MS', 'Chalkboard', cursive;
+  font-family: "Indie Flower", cursive;
 }

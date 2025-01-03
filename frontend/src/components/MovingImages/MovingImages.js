@@ -43,7 +43,6 @@ const MovingImages = () => {
             <div className="slide-overlay">
               <div className="slide-content">
                 <h2 className="slide-title">{slide.title}</h2>
-                {/* Removed the button */}
               </div>
             </div>
           </div>

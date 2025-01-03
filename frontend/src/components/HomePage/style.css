@@ -1,13 +1,10 @@
 body {
-    background-color: rgb(195, 195, 186); 
-    background-image: 
-      url('../../images/background.jpg');
+  /* background-image: url('/images/wall.jpg'); */
     background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-blend-mode: overlay; 
-    padding: 130px;
-    font-family: Garamond, serif;
-
-    background-color: rgba(247, 247, 244, 0.7); 
-  }
+  background-position: center;
+  background-repeat: repeat; 
+  background-blend-mode: overlay; 
+  padding: 130px;
+  font-family: "Indie Flower", cursive;
+  background-color: rgba(244, 244, 236, 0.7);
+}
