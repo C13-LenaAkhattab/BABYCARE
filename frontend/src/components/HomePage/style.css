@@ -7,7 +7,7 @@ body {
     background-repeat: no-repeat; 
     background-blend-mode: overlay; 
     padding: 130px;
-  
+    font-family: Garamond, serif;
+
     background-color: rgba(247, 247, 244, 0.7); 
   }
-  

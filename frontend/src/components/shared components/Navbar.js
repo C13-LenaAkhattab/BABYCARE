@@ -1,11 +1,12 @@
 import React from 'react';
+import './Navbar.css'; // Custom CSS for your color scheme
 
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar bg-body-tertiary fixed-top">
+      <nav className="navbar bg-third-color fixed-top navbar-thick">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">BabyCare</a>
+          <a className="navbar-brand text-second-color funky-font" href="#">BabyCare</a>
 
           <button 
             className="navbar-toggler" 
@@ -24,8 +25,8 @@ const Navbar = () => {
             id="offcanvasNavbar" 
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <div className="offcanvas-header bg-second-color">
+              <h5 className="offcanvas-title text-third-color funky-font" id="offcanvasNavbarLabel">Menu</h5>
               <button 
                 type="button" 
                 className="btn-close" 
@@ -34,17 +35,17 @@ const Navbar = () => {
               ></button>
             </div>
 
-            <div className="offcanvas-body">
+            <div className="offcanvas-body bg-first-color">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">Home</a>
+                  <a className="nav-link active text-third-color funky-font" aria-current="page" href="#">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Contact Us</a>
+                  <a className="nav-link text-third-color funky-font" href="#">Contact Us</a>
                 </li>
                 <li className="nav-item dropdown">
                   <a 
-                    className="nav-link dropdown-toggle" 
+                    className="nav-link dropdown-toggle text-third-color funky-font" 
                     href="#" 
                     role="button" 
                     data-bs-toggle="dropdown" 
@@ -61,12 +62,12 @@ const Navbar = () => {
               </ul>
               <form className="d-flex mt-3" role="search">
                 <input 
-                  className="form-control me-2" 
+                  className="form-control me-2 funky-font" 
                   type="search" 
                   placeholder="Search" 
                   aria-label="Search"
                 />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+                <button className="btn btn-outline-success bg-fourth-color text-second-color funky-font" type="submit">Search</button>
               </form>
             </div>
           </div>
