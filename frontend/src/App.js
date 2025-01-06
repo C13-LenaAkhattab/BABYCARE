@@ -14,9 +14,11 @@ const App = () => {
     localStorage.getItem("Token") || "")
   const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
   const [isLoggedIn, setisLoggedIn] = useState(!!TokenState);
+  const [CategoryName , setCategoryName]=useState("")
+
 
   return (
-    <AppContext.Provider value={{setMessageType,messageType, message, setMessage,TokenState,setTokenState,isLoggedIn, setisLoggedIn, setUserId,userId}}>
+    <AppContext.Provider value={{setMessageType,messageType, message, setMessage,TokenState,setTokenState,isLoggedIn, setisLoggedIn, setUserId,userId,CategoryName , setCategoryName}}>
       <div className="App">
         <Home />
       </div>
