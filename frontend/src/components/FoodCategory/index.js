@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App';
+import "./style.css"
 
 const FoodCategory = () => {
     
@@ -7,13 +8,16 @@ const FoodCategory = () => {
   
   const categories = [
     {
-      name: "Stage 1"
+      name: "Stage 1",
+      note: "4-6 monthes"
     },
     {
-      name: "Stage 2"
+      name: "Stage 2",
+      note: "6-8 monthes"
     },
     {
-      name: "Stage 3"
+      name: "Stage 3",
+      note: "8-12 monthes"
     }
   ];
 
@@ -31,7 +35,8 @@ const FoodCategory = () => {
                 setCategoryName(category.name);  
               }}
             >
-              <span>{category.name}</span>
+              <h1>{category.name}</h1>
+              <h4>{category.note}</h4>
             </button>
           );
         })}

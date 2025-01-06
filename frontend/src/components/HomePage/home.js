@@ -5,6 +5,7 @@ import Register from "../Register/Register"
 import Login from "../Login/Login"
 import MovingImages from "../MovingImages/MovingImages"
 import FoodCategory from "../FoodCategory/index"
+import FeedingGuide from "../FeedingGuide/index"
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
 <Navbar/>
 <MovingImages/>
 <FoodCategory/>
+<FeedingGuide/>
 {/* <Register/> */}
 {/* <Login/>  */}
 </>
