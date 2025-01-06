@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css'; // Custom CSS for your color scheme
+import './Navbar.css'; 
 
 const Navbar = () => {
   return (
@@ -60,15 +60,7 @@ const Navbar = () => {
                   </ul>
                 </li>
               </ul>
-              <form className="d-flex mt-3" role="search">
-                <input 
-                  className="form-control me-2 funky-font" 
-                  type="search" 
-                  placeholder="Search" 
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success bg-fourth-color text-second-color funky-font" type="submit">Search</button>
-              </form>
+             
             </div>
           </div>
         </div>
