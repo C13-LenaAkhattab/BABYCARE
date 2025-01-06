@@ -23,7 +23,7 @@ const FoodCategory = () => {
 
   return (
     <>
-      <div className="CategoryPage">Baby Food Recipes</div>
+      <div className="CategoryPage">Choose the stage Based on your baby's age:</div>
       
       <div className="CategoriesContainer">
         {categories.map((category, i) => {

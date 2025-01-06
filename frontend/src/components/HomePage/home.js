@@ -13,7 +13,6 @@ const Home = () => {
 <Navbar/>
 <MovingImages/>
 <FoodCategory/>
-<FeedingGuide/>
 {/* <Register/> */}
 {/* <Login/>  */}
 </>
