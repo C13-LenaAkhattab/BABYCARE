@@ -4,9 +4,8 @@ import { AppContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { isLoggedIn, setisLoggedIn, setTokenState, setUserId } =
-    useContext(AppContext);
-  const navigate=useNavigate()
+  const { isLoggedIn, setisLoggedIn, setTokenState, setUserId } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("Token");
@@ -20,8 +19,13 @@ const Navbar = () => {
     <>
       <nav className="navbar bg-third-color fixed-top navbar-thick">
         <div className="container-fluid">
-          <a className="navbar-brand text-second-color funky-font" href="#">
+          <a className="navbar-brand text-second-color funky-font" href="/">
             Mommy's World
+            <img 
+              src="images/mother.png" 
+              alt="Logo" 
+              className="navbar-logo"
+            />
           </a>
 
           <button
@@ -62,13 +66,12 @@ const Navbar = () => {
                   <a
                     className="nav-link active text-third-color funky-font"
                     aria-current="page"
-                    href="#"
                   >
                     Home
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-third-color funky-font" href="#">
+                  <a className="nav-link text-third-color funky-font">
                     Contact Us
                   </a>
                 </li>
@@ -79,7 +82,6 @@ const Navbar = () => {
                         navigate("/Login");
                       }}
                       className="nav-link text-third-color funky-font"
-                      href="#"
                     >
                       Sign Up
                     </a>
@@ -89,7 +91,6 @@ const Navbar = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link text-third-color funky-font"
-                        href="#"
                       >
                         My Profile
                       </a>
@@ -97,9 +98,11 @@ const Navbar = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link text-third-color funky-font"
-                        href="#"
+                        onClick={()=>{
+                          navigate("/FoodCategory")
+                        }}
                       >
-                        Orders
+                        Ricepes
                       </a>
                     </li>
                     <li className="nav-item">

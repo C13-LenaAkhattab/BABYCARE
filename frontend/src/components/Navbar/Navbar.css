@@ -19,7 +19,7 @@
 }
 
 .text-second-color {
-  color: #241f36;
+  color: #473f65;
   font-weight:bolder;
   font-size:x-large;
 }
@@ -57,3 +57,7 @@
 .btn {
   font-family: "Indie Flower", cursive;
 }
+.navbar-logo {
+  height: 40px;
+  width: auto; 
+  margin-left: 10px; }

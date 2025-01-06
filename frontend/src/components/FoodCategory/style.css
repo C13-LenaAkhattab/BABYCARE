@@ -1,5 +1,46 @@
-.CategoriesContainer{
+.CategoryPage {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  .CategoriesContainer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .Category {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .Category:hover img {
+    transform: translateY(-5px);
+  }
+  
+  .Category img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .Category h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .Category h4 {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  

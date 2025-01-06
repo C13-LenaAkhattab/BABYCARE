@@ -12,7 +12,6 @@ const Home = () => {
 <>
 <Navbar/>
 <MovingImages/>
-<FoodCategory/>
 {/* <Register/> */}
 {/* <Login/>  */}
 </>
