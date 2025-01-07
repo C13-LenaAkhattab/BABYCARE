@@ -1,120 +1,123 @@
-body {
+.foodPage {
     font-family: "Georgia", serif;
-    background-color: #f9f9f9;
-    color: #b1acac; 
-    margin: 0;
-    padding: 0;
-  }
-  
-  .Stage1InfoContainer {
+    color: #cdcdcd; 
+}
+
+.Stage1InfoContainer {
     margin-top: 80px;
     display: flex; 
     justify-content: space-between;
-    align-items: center;
-    background-color: #f4f4f4;
+    background-color: #f4f4f492;
     margin-bottom: 20px;
-    width: 100vw; 
-    position: absolute; 
-  }
-  
-  
-  .Stage1Info h2 {
+    position: relative; 
+    box-sizing: border-box;
+    width: 100%; 
+    border-radius: 8px;
+}
+
+.Stage1Info h2 {
     margin-left: 80px;
     font-size: 1.8rem;
     color: #6f88a3; 
     margin-bottom: 10px;
-  }
-  
-  .Stage1Info p {
+}
+
+.Stage1Info p {
     margin-left: 80px;
     font-size: 1rem;
     color: #555; 
-  }
-  
-  .Stage1Info h4 {
+}
+
+.Stage1Info h4 {
     margin-left: 80px;
     font-size: 1.2rem;
     color: #6f88a3; 
     margin-top: 20px;
-  }
-  
-  .Stage1Info ul {
+}
+
+.Stage1Info ul {
     margin-left: 10px;
     list-style-type: none;
     padding: 0;
-  }
-  
-  .Stage1Info ul li {
+}
+
+.Stage1Info ul li {
     font-size: 0.9rem;
     color: #333; 
     display: flex;
     align-items: center;
-  }
-  
-  .Stage1Info ul li::before {
+}
+
+.Stage1Info ul li::before {
     margin-left: 80px;
     content: "✔"; 
     color: #6f88a3;
     margin-right: 10px;
-  }
-  
-  .Stage1Image {
+}
+
+.Stage1Image {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .Stage1Image img {
+}
+
+.Stage1Image img {
     width: 60%;
     border-radius: 10px;
     border: 2px solid #598dc5; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-  }
-  
-  .RecipeCard {
-    width: 200px;
-    margin: 15px;
+}
+
+.RecipeCard {
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Fixed width for each card */
+    height: 380px; /* Set a fixed height for the card */
+    margin: 0 15px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .RecipeCard:hover {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced evenly within the card */
+}
+
+.RecipeCard:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .RecipeImage {
+}
+
+.RecipeImage {
     width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
-  }
-  
-  .RecipeCard h3 {
+}
+
+.RecipeCard h3 {
     margin: 10px 0 5px;
     font-size: 1.2rem;
     color:#6f88a3; 
-  }
-  
-  .RecipesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+}
+
+.RecipesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    gap: 20px; /* Space between the cards */
     padding: 20px;
-  }
-  
-  .modal-dialog {
+}
+
+.modal-dialog {
     max-width: 80%;
     margin: auto;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -122,98 +125,97 @@ body {
     background-color: #ffffff; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     flex: 1;
     padding: 0;
-  }
-  
-  .modal-header img {
+}
+
+.modal-header img {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 10px 0 0 10px; 
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
-  }
-  
-  .btn-close {
+}
+
+.btn-close {
     background-color: #6f88a3;
     border: none;
     font-size: 1.5rem;
     color: #aaa;
-  }
-  
-  .btn-close:hover {
+}
+
+.btn-close:hover {
     color: #333;
-  }
-  
-  .modal-body {
+}
+
+.modal-body {
     flex: 2;
     padding: 20px;
     overflow-y: auto;
-  }
-  
-  .modal-body h4 {
+}
+
+.modal-body h4 {
     margin-top: 15px;
     color: #6f88a3;
     font-weight: bold;
-  }
-  
-  .modal-body ul {
+}
+
+.modal-body ul {
     list-style-type: none; 
     padding: 0;
-  }
-  
-  .modal-body ul li {
+}
+
+.modal-body ul li {
     font-size: 1rem;
     color: #555;
     margin: 10px 0;
     display: flex;
     align-items: center;
-  }
-  
-  .modal-body ul li::before {
+}
+
+.modal-body ul li::before {
     content: "🍽"; 
     color:#6f88a3;
     margin-right: 10px;
-  }
-  
+}
 
-  .modal-body .comment-section {
+.modal-body .comment-section {
     margin-top: 20px;
     border-top: 1px solid #ddd;
     padding-top: 15px;
-  }
-  
-  .modal-body .comment-section strong {
+}
+
+.modal-body .comment-section strong {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     color: #333;
-  }
-  
-  .modal-body .comment-section p {
+}
+
+.modal-body .comment-section p {
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 10px;
-  }
-  
-  .modal-footer {
+}
+
+.modal-footer {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 20px;
     border-top: none;
-  }
-  
-  .modal-footer button {
+}
+
+.modal-footer button {
     background-color:#6f88a3;
     border: none;
     color: #fff;
@@ -221,9 +223,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .modal-footer button:hover {
+}
+
+.modal-footer button:hover {
     background-color:#6f88a3;
-  }
-  
+}

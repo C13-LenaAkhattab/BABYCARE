@@ -51,7 +51,7 @@ const Stage1 = () => {
   };
 
   return (
-    <div>
+    <div className="foodPage">
       <div className="Stage1InfoContainer">
         <div className="Stage1Info">
           <h2>Stage One:</h2>
@@ -153,7 +153,7 @@ const Stage1 = () => {
                 ))}
               </ul>
 
-              {/* Comments Section */}
+              
               <h4>Comments:</h4>
               {comments.length > 0 ? (
                 comments.map((comment, idx) => (
@@ -162,7 +162,7 @@ const Stage1 = () => {
                   </div>
                 ))
               ) : (
-                <p>No comments available.</p>
+                <p>No comments yet.</p>
               )}
             </div>
             <div className="modal-footer">
