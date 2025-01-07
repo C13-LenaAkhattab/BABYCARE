@@ -1,0 +1,75 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./style.css";
+
+const Stage1 = () => {
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://localhost:5000/food/stage/1");
+        if (response.data.success) {
+          setRecipes(response.data.food);
+        } else {
+          setRecipes([]);
+        }
+      } catch (err) {
+        console.error("Error fetching recipes: ", err);
+        setRecipes([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
+
+  return (
+    <div>
+      <div className="Stage1InfoContainer">
+        <div className="Stage1Info">
+          <h2>Stage One:</h2>
+          <p>
+            To reach the first stages of solid feeding, baby should be able to hold their head up on their own. While this is roughly anywhere from 4-6 months old, baby should be at least 4 months before starting on any solids.
+          </p>
+          <p>
+            You'll also notice that their tongue thrust, or the pushing of food out of their mouth with their tongue, has largely stopped. This means their swallowing capabilities have developed and they're ready to try some first tastes!
+          </p>
+          <p>
+            During this time, introduce baby to as many new foods as possible, every 3-5 days, so you can tell if they have any food sensitivities early on.
+          </p>
+          <h4>Things You'll Need:</h4>
+          <ul>
+            <li>Baby spoons</li>
+            <li>Bowl with lid</li>
+          </ul>
+        </div>
+        <div className="Stage1Image">
+          <img src="images/pear.png" alt="Stage 1 food" />
+        </div>
+      </div>
+
+      <div className="RecipesContainer">
+        {loading ? (
+          <p>Loading recipes...</p>
+        ) : recipes.length > 0 ? (
+          recipes.map((recipe, i) => (
+            <div key={i} className="RecipeCard">
+              <h3>{recipe.name}</h3>
+              <p>{recipe.description}</p>
+              <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
+              <p><strong>Benefits:</strong> {recipe.benefits}</p>
+            </div>
+          ))
+        ) : (
+          <p>No recipes found for Stage 1.</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Stage1;

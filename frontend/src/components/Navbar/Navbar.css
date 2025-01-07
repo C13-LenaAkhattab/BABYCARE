@@ -1,3 +1,6 @@
+body {
+  font-family: Georgia, serif;
+}
 .bg-first-color {
   background-color: #f9ecec; 
 }
@@ -21,7 +24,7 @@
 .text-second-color {
   color: #473f65;
   font-weight:bolder;
-  font-size:x-large;
+  font-size:larger;
 }
 
 .text-third-color {
@@ -32,9 +35,7 @@
   color: #52575d;
 }
 
-.funky-font {
-  font-family: Garamond, serif;
-}
+
 
 .navbar-thick {
   height: 80px;
@@ -45,18 +46,12 @@
   padding: 20px;
 }
 
-.offcanvas-body {
-  font-family: "Indie Flower", cursive;
-
-}
 
 .navbar-toggler {
   border: none;
 }
 
-.btn {
-  font-family: "Indie Flower", cursive;
-}
+
 .navbar-logo {
   height: 40px;
   width: auto; 

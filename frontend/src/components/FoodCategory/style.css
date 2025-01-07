@@ -1,46 +1,94 @@
+body{
+  font-family: Georgia, serif;
+
+}
 .CategoryPage {
-    font-size: 24px;
+    font-size: 28px; 
     font-weight: bold;
     text-align: center;
-    margin: 20px 0;
-    color: #333;
+    margin:  0; 
+    color: #333333;
   }
   
   .CategoriesContainer {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 20px;
+    flex-wrap: wrap;
+    gap: 50px; 
+    padding: 10px; 
+    margin-top: 20px;
   }
   
   .Category {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s;
+    width: 200px; 
   }
   
   .Category:hover img {
-    transform: translateY(-5px);
+    transform: translateY(-8px); 
   }
   
   .Category img {
-    width: 100px;
+    width: 140px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     transition: transform 0.3s;
     cursor: pointer;
   }
   
   .Category h1 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
-    margin: 5px 0;
+    transition: color 0.3s; 
   }
   
   .Category h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
     margin: 0;
+    transition: color 0.3s; 
+  }
+  
+  .Category:hover h1,
+  .Category:hover h4 {
+    color: #e199bb; 
+  }
+  .RecipesContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .RecipeCard {
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s;
+  }
+  
+  .RecipeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .RecipeCard h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .RecipeCard p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
   }
   

@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import Register from "../Register/Register"
 import Login from "../Login/Login"
 import MovingImages from "../MovingImages/MovingImages"
-import FoodCategory from "../FoodCategory/index"
+import FoodCategory from "../FoodCategory/FoodCategory"
 import FeedingGuide from "../FeedingGuide/index"
 
 const Home = () => {
