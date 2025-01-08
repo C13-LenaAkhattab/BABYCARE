@@ -1,94 +1,151 @@
-body{
+body {
   font-family: Georgia, serif;
-
 }
+
 .CategoryPage {
-    font-size: 28px; 
-    font-weight: bold;
-    text-align: center;
-    margin:  0; 
-    color: #333333;
-  }
-  
-  .CategoriesContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px; 
-    padding: 10px; 
-    margin-top: 20px;
-  }
-  
-  .Category {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-    width: 200px; 
-  }
-  
-  .Category:hover img {
-    transform: translateY(-8px); 
-  }
-  
-  .Category img {
-    width: 140px;
-    height: auto;
-    margin-bottom: 15px;
-    transition: transform 0.3s;
-    cursor: pointer;
-  }
-  
-  .Category h1 {
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.3s; 
-  }
-  
-  .Category h4 {
-    font-size: 16px;
-    color: #666;
-    margin: 0;
-    transition: color 0.3s; 
-  }
-  
-  .Category:hover h1,
-  .Category:hover h4 {
-    color: #e199bb; 
-  }
-  .RecipesContainer {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .RecipeCard {
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    text-align: left;
-    transition: transform 0.3s;
-  }
-  
-  .RecipeCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .RecipeCard h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .RecipeCard p {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0;
-  }
-  
+  font-size: 28px; 
+  font-weight: bold;
+  text-align: center;
+  margin: 0; 
+  color: #333333;
+}
+
+.CategoriesContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px; 
+  padding: 10px; 
+  margin-top: 20px;
+}
+
+.Category {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 200px; 
+}
+
+.Category:hover img {
+  transform: translateY(-8px); 
+}
+
+.Category img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.Category h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s; 
+}
+
+.Category h4 {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  transition: color 0.3s; 
+}
+
+.Category:hover h1,
+.Category:hover h4 {
+  color: #e199bb; 
+}
+
+/* Updated RecipesContainer for horizontal scrolling */
+.RecipesContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 20px;
+}
+
+/* Updated RecipeCard for horizontal layout */
+.RecipeCard {
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.RecipeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.RecipeCard h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.RecipeCard p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Add the Stage1InfoContainer styles from previous CSS */
+.Stage1InfoContainer {
+  margin-top: 80px;
+  display: flex; 
+  justify-content: space-between;
+  background-color: #f4f4f492;
+  margin-bottom: 20px;
+  position: relative; 
+  box-sizing: border-box;
+  width: 100%; 
+  border-radius: 8px;
+}
+
+.Stage1Info {
+  padding: 20px;
+}
+
+.Stage1Info h2 {
+  font-size: 1.8rem;
+  color: #6f88a3; 
+  margin-bottom: 10px;
+}
+
+.Stage1Info p {
+  font-size: 1rem;
+  color: #555; 
+}
+
+.Stage1Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Stage1Image img {
+  width: 60%;
+  border-radius: 10px;
+  border: 2px solid #598dc5; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+/* Add RecipeImage class */
+.RecipeImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}

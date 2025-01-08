@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../../App";
 import "./Login.css";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -86,7 +87,7 @@ const Login = () => {
           {message}
         </p>
         <p className="register-text">
-          Don't have an account? <a href="/register">Register</a>
+          Don't have an account? <a onClick={()=>{Navigate("/Register")}} href="/register">Register</a>
         </p>
       </div>
     </div>

@@ -80,10 +80,16 @@ const createNewComment = async (req, res) => {
 };
 
 const getComments = async (req, res) => {
-  const id = req.params.id; 
-
+  const id = req.params.id;
+    
   try {
-    const foodItem = await FoodModel.findById(id).populate("comments");
+    const foodItem = await FoodModel.findById(id).populate({
+      path: 'comments',
+      populate: {
+        path: 'commenter',
+        select: 'firstName' 
+      }
+    });
 
     if (!foodItem) {
       return res.status(404).json({

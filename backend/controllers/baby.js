@@ -2,31 +2,39 @@ const BabyModel = require('../models/babySchema');
 
 const addBaby = (req, res) => {
     const { firstName, ageInMonths } = req.body;
-
+    
+    // req.token.userId should be available from the middleware
     const parent = req.token.userId;
-
+    
+    if (!parent) {
+      return res.status(400).json({
+        success: false,
+        message: "Parent ID not found in token"
+      });
+    }
+  
     const newBaby = new BabyModel({
-        firstName,
-        ageInMonths,
-        parent,
+      firstName,
+      ageInMonths,
+      parent,
     });
-
+  
     newBaby
-        .save()
-        .then((savedBaby) => {
-            res.status(201).json({
-                success: true,
-                message: "Baby added successfully.",
-                baby: savedBaby,
-            });
-        })
-        .catch((error) => {
-            res.status(400).json({
-                success: false,
-                message: `Failed to add baby: ${error.message}`,
-            });
+      .save()
+      .then((savedBaby) => {
+        res.status(201).json({
+          success: true,
+          message: "Baby added successfully.",
+          baby: savedBaby,
         });
-};
+      })
+      .catch((error) => {
+        res.status(400).json({
+          success: false,
+          message: `Failed to add baby: ${error.message}`,
+        });
+      });
+  };
 
 
 const getBabiesByParent = (req, res) => {

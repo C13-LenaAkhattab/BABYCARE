@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Stage1 from "./components/FoodStage/Stage1";
 import Stage2 from "./components/FoodStage/Stage2";
 import Stage3 from "./components/FoodStage/Stage3";
+import Register from "./components/Register/Register"
 
 
 export const AppContext = createContext();
@@ -51,6 +52,8 @@ const App = () => {
           <Route path="/Stage1" element={<Stage1 />} />
           <Route path="/Stage2" element={<Stage2 />} />
           <Route path="/Stage3" element={<Stage3 />} />
+          <Route path="/Register" element={<Register />} />
+
 
           
 

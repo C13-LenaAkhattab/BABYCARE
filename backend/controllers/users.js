@@ -5,27 +5,33 @@ const jwt = require("jsonwebtoken");
 
 const register = (req, res) => {
   const { email, password, firstName } = req.body;
-
-  const newUser = new UserModel({ email, password, firstName, role:"677039050dc1d38e298de85f"});
+  
+  const newUser = new UserModel({ email, password, firstName, role: "677039050dc1d38e298de85f" });
+  
   newUser
     .save()
     .then((result) => {
       res.status(201).json({
         success: true,
         user: result,
-        message: `Acount created successfully`
+        message: `Account created successfully`
       });
     })
     .catch((err) => {
+      let errorMessage = 'Registration failed';
+      
+      if (err.code === 11000) {
+        errorMessage = 'This email is already registered';
+      } else if (err.message) {
+        errorMessage = err.message;
+      }
+      
       res.status(400).json({
         success: false,
-        message: err,
+        message: errorMessage
       });
     });
 };
-
-
-
 const login = (req, res) => {
   const { password, email } = req.body;
 

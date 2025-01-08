@@ -1,12 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import "./style.css";
+import { AppContext } from "../../App";
 
 const Stage2 = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
+  const containerRef = useRef(null);
+  const { isLoggedIn, TokenState } = useContext(AppContext);
+
+  const defaultRecipes = {
+    1: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/sweet_potato_combo_baby_food-4.jpg"
+    },
+    2: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/carrot_combo_baby_food-8.jpg"
+    },
+    3: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/apple_combo_baby_food-7.jpg"
+    },
+    4: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/banana_combo_baby_food-8.jpg"
+    },
+    5: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/blueberry_combo_baby_food-7.jpg"
+    }
+  };
+
+  const fallbackImage = "https://images.unsplash.com/photo-1495546968767-f0573cca821e?w=800&auto=format&fit=crop";
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -14,13 +38,17 @@ const Stage2 = () => {
       try {
         const response = await axios.get("http://localhost:5000/food/stage/2");
         if (response.data.success) {
-          setRecipes(response.data.food);
+          const recipesWithImages = response.data.food.map((recipe, index) => ({
+            ...recipe,
+            image: defaultRecipes[index + 1]?.image || fallbackImage
+          }));
+          setRecipes(recipesWithImages);
         } else {
           setRecipes([]);
         }
       } catch (err) {
         console.error("Error fetching recipes: ", err);
-        setRecipes([]);
+        setRecipes(Object.values(defaultRecipes));
       } finally {
         setLoading(false);
       }
@@ -32,7 +60,7 @@ const Stage2 = () => {
   const fetchComments = async (recipeId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/food/comments/${recipeId}`
+        `http://localhost:5000/food/${recipeId}/comments`
       );
       if (response.data.success) {
         setComments(response.data.comments);
@@ -41,71 +69,148 @@ const Stage2 = () => {
       }
     } catch (err) {
       console.error("Error fetching comments: ", err);
-      setComments([]);
+      if (err.response?.status === 404) {
+        setComments([]);
+      } else {
+        setComments([]);
+      }
     }
   };
 
   const handleCardClick = (recipe) => {
     setSelectedRecipe(recipe);
     fetchComments(recipe._id);
+    setNewComment('');
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    if (!newComment.trim()) return;
+
+    try {
+      const token = TokenState;
+      
+      const response = await axios.post(
+        `http://localhost:5000/food/${selectedRecipe._id}/comments`, 
+        { comment: newComment },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
+      if (response.data.success) {
+        await fetchComments(selectedRecipe._id);
+        setNewComment('');
+      }
+    } catch (err) {
+      console.error("Error posting comment: ", err);
+      if (err.response?.status === 401) {
+        alert("Please login to comment");
+      }
+    }
+  };
+
+  const handleScroll = (direction) => {
+    if (containerRef.current) {
+      const scrollAmount = direction === 'left' ? -600 : 600;
+      containerRef.current.scrollLeft += scrollAmount;
+    }
   };
 
   return (
     <div className="foodPage">
+      <div className="RecipesSectionHeader">
+        <h1>R E C I P E S F O R B A B I E S</h1>
+        <p className="subtitle">Healthy, Homemade & Nutritious</p>
+        <div className="header-divider"></div>
+      </div>
+
+      <div className="introSection">
+        <div className="introCard">
+          <h3>Why Homemade Baby Food?</h3>
+          <p>Making your own baby food allows you to provide fresh, nutritious meals while knowing exactly what goes into your baby's diet.</p>
+        </div>
+        <div className="introCard">
+          <h3>Getting Started</h3>
+          <p>All you need is fresh ingredients, basic kitchen tools, and about 30 minutes to prepare nutritious homemade baby food.</p>
+        </div>
+        <div className="introCard">
+          <h3>Storage Tips</h3>
+          <p>Store purées in small portions in the refrigerator for 48 hours or freeze for up to 3 months.</p>
+        </div>
+      </div>
+
       <div className="Stage1InfoContainer">
         <div className="Stage1Info">
           <h2>Stage Two:</h2>
           <p>
-          At roughly 6-8 months old, baby will begin to sit up on their own. This may not fully develop for some time, 
-          but you'll see them make attempts.It can be anywhere from 2-3 months after starting solids, depending on when you started.
-
+            At roughly 6-8 months old, baby will begin to sit up on their own. This may not fully develop for some time, 
+            but you'll see them make attempts. It can be anywhere from 2-3 months after starting solids, depending on when you started.
           </p>
           <p>
-          During this time, they'll largely eat easy-to-swallow foods like mashed carrots. Remember, it can take up 
-          to 15 times of baby eating something before they like it, so don't give up on food if at first they seem 
-          uninterested. You can now also start to offer more foods at one time.
+            During this time, they'll largely eat easy-to-swallow foods like mashed carrots. Remember, it can take up 
+            to 15 times of baby eating something before they like it, so don't give up on food if at first they seem 
+            uninterested. You can now also start to offer more foods at one time.
           </p>
           <p>
-          You can also begin to let them hold the spoon and help you bring it to their mouth.
+            You can also begin to let them hold the spoon and help you bring it to their mouth.
           </p>
           <h4>Things You'll Need:</h4>
           <ul>
-            <li> Silicone feeder </li>
+            <li>Silicone feeder</li>
             <li>Plates</li>
           </ul>
         </div>
         <div className="Stage1Image">
-          <img src="images/broccoli.png" alt="Stage 2 food" />
+          <img src="images/vegetable.png" alt="Stage 2 food" />
         </div>
       </div>
 
-      {/* Recipes Section */}
-      <div className="RecipesContainer">
-        {loading ? (
-          <p>Loading recipes...</p>
-        ) : recipes.length > 0 ? (
-          recipes.map((recipe, i) => (
-            <div
-              key={i}
-              className="RecipeCard"
-              onClick={() => handleCardClick(recipe)}
-              data-bs-toggle="modal"
-              data-bs-target="#recipeModal"
-            >
-              <img
-                src={`images/${recipe.image || "default.png"}`}
-                alt={recipe.name}
-                className="RecipeImage"
-              />
-              <h3>{recipe.name}</h3>
-            </div>
-          ))
-        ) : (
-          <p>No recipes found for Stage 2.</p>
-        )}
+      <div className="RecipesNavigation">
+        <button 
+          className="nav-arrow prev" 
+          onClick={() => handleScroll('left')}
+        >
+          ←
+        </button>
+        <button 
+          className="nav-arrow next" 
+          onClick={() => handleScroll('right')}
+        >
+          →
+        </button>
+        <div className="RecipesContainer" ref={containerRef}>
+          {loading ? (
+            <p>Loading recipes...</p>
+          ) : recipes.length > 0 ? (
+            recipes.map((recipe, i) => (
+              <div
+                key={i}
+                className="RecipeCard"
+                data-number={i + 1}
+                onClick={() => handleCardClick(recipe)}
+                data-bs-toggle="modal"
+                data-bs-target="#recipeModal"
+              >
+                <img
+                  src={recipe.image}
+                  alt={recipe.name}
+                  className="RecipeImage"
+                  onError={(e) => {
+                    e.target.src = fallbackImage;
+                  }}
+                />
+                <h3>{recipe.name}</h3>
+              </div>
+            ))
+          ) : (
+            <p>No recipes found for Stage 2.</p>
+          )}
+        </div>
       </div>
 
-      {/* Modal */}
       <div
         className="modal fade"
         id="recipeModal"
@@ -118,9 +223,13 @@ const Stage2 = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="recipeModalLabel">
-                {selectedRecipe?.name}
-              </h1>
+              <img
+                src={selectedRecipe?.image}
+                alt={selectedRecipe?.name}
+                onError={(e) => {
+                  e.target.src = fallbackImage;
+                }}
+              />
               <button
                 type="button"
                 className="btn-close"
@@ -129,45 +238,65 @@ const Stage2 = () => {
               ></button>
             </div>
             <div className="modal-body">
+              <h1 className="modal-title">{selectedRecipe?.name}</h1>
               <p>{selectedRecipe?.description}</p>
-              <h4>Ingredients:</h4>
+              
+              <h4 className="ingredients">Ingredients</h4>
               <ul>
                 {selectedRecipe?.ingredients?.map((ingredient, idx) => (
                   <li key={idx}>{ingredient}</li>
                 ))}
               </ul>
-              <h4>Benefits:</h4>
+
+              <h4 className="benefits">Benefits</h4>
               <ul>
                 {selectedRecipe?.benefits?.map((benefit, idx) => (
                   <li key={idx}>{benefit}</li>
                 ))}
               </ul>
-              <h4>Recipe:</h4>
+
+              <h4 className="recipe">Recipe Steps</h4>
               <ul>
                 {selectedRecipe?.recipe?.map((step, idx) => (
                   <li key={idx}>{step}</li>
                 ))}
               </ul>
 
-              <h4>Comments:</h4>
-              {comments.length > 0 ? (
-                comments.map((comment, idx) => (
-                  <div key={idx}>
-                    <strong>{comment.username}:</strong> {comment.text}
+              <h4 className="comments">Comments</h4>
+              <div className="comments-section">
+                {comments.length > 0 ? (
+                  <div className="comments-list">
+                    {comments.map((comment, idx) => (
+                      <div key={idx} className="comment">
+                        <strong>{comment.commenter?.firstName || 'Anonymous'}:</strong> {comment.comment}
+                      </div>
+                    ))}
                   </div>
-                ))
-              ) : (
-                <p>No comments yet.</p>
-              )}
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
+                ) : (
+                  <p>No comments yet.</p>
+                )}
+
+                {isLoggedIn ? (
+                  <form onSubmit={handleCommentSubmit} className="comment-form">
+                    <div className="form-group">
+                      <textarea
+                        placeholder="Add a comment..."
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        className="form-control"
+                        required
+                      />
+                    </div>
+                    <button type="submit" className="comment-submit">
+                      Add Comment
+                    </button>
+                  </form>
+                ) : (
+                  <div className="login-prompt">
+                    Please login to add comments
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
