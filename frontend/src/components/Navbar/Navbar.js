@@ -16,111 +16,150 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <nav className="navbar bg-third-color fixed-top navbar-thick">
-        <div className="container-fluid">
-          <a className="navbar-brand text-second-color funky-font" href="/">
-            Mommy's World
-            <img 
-              src="images/mother.png" 
-              alt="Logo" 
-              className="navbar-logo"
-            />
-          </a>
+    <nav className="navbar bg-third-color fixed-top navbar-thick">
+      <div className="container-fluid">
+        <a className="navbar-brand text-second-color funky-font" href="/">
+          Mommy's World
+          <img 
+            src="images/mother.png" 
+            alt="Logo" 
+            className="navbar-logo"
+          />
+        </a>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-          <div
-            className="offcanvas offcanvas-end"
-            tabIndex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div className="offcanvas-header bg-second-color">
-              <h5
-                className="offcanvas-title text-third-color funky-font"
-                id="offcanvasNavbarLabel"
-              >
-                Menu
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
+        <div
+          className="offcanvas offcanvas-end"
+          tabIndex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div className="offcanvas-header bg-second-color">
+            <h5
+              className="offcanvas-title text-fourth-color funky-font"
+              id="offcanvasNavbarLabel"
+            >
+              Menu
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
 
-            <div className="offcanvas-body bg-first-color">
-              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
+          <div className="offcanvas-body bg-first-color">
+            <ul className="navbar-nav justify-content-center align-items-center w-100 gap-4">
+              <li className="nav-item text-center">
+                <a
+                  className="nav-link text-fourth-color funky-font"
+                  aria-current="page"
+                  onClick={() => navigate('/')}
+                >
+                  Home
+                </a>
+              </li>
+              
+              <li className="nav-item text-center">
+                <a 
+                  className="nav-link text-fourth-color funky-font"
+                  onClick={() => navigate('/AboutUs')}
+                >
+                  About Us
+                </a>
+              </li>
+
+              <li className="nav-item text-center">
+                <a 
+                  className="nav-link text-fourth-color funky-font"
+                  onClick={() => navigate('/contact')}
+                >
+                  Contact Us
+                </a>
+              </li>
+
+              {!isLoggedIn ? (
+                <li className="nav-item text-center">
                   <a
-                    className="nav-link active text-third-color funky-font"
-                    aria-current="page"
+                    onClick={() => navigate("/Login")}
+                    className="nav-link text-fourth-color funky-font"
                   >
-                    Home
+                    Sign Up
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link text-third-color funky-font">
-                    Contact Us
-                  </a>
-                </li>
-                {!isLoggedIn ? (
-                  <li className="nav-item">
+              ) : (
+                <>
+                  <li className="nav-item text-center">
                     <a
-                      onClick={() => {
-                        navigate("/Login");
-                      }}
-                      className="nav-link text-third-color funky-font"
+                      className="nav-link text-fourth-color funky-font"
+                      onClick={() => navigate("/profile")}
                     >
-                      Sign Up
+                      My Profile
                     </a>
                   </li>
-                ) : (
-                  <>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link text-third-color funky-font"
-                      >
-                        My Profile
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link text-third-color funky-font"
-                        onClick={()=>{
-                          navigate("/FoodCategory")
-                        }}
-                      >
-                        Ricepes
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link btn btn-link text-third-color funky-font"
-                        onClick={handleLogout}
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </div>
+                  
+                  <li className="nav-item text-center">
+                    <a
+                      className="nav-link text-fourth-color funky-font"
+                      onClick={() => navigate("/milestones")}
+                    >
+                      Milestones
+                    </a>
+                  </li>
+
+                  <li className="nav-item text-center">
+                    <a
+                      className="nav-link text-fourth-color funky-font"
+                      onClick={() => navigate("/album")}
+                    >
+                      Album
+                    </a>
+                  </li>
+
+                  <li className="nav-item text-center">
+                    <a
+                      className="nav-link text-fourth-color funky-font"
+                      onClick={() => navigate("/recipes")}
+                    >
+                      Recipes
+                    </a>
+                  </li>
+
+                  <li className="nav-item text-center">
+                    <a
+                      className="nav-link text-fourth-color funky-font"
+                      onClick={() => navigate("/helping")}
+                    >
+                      Parents Helping Parents
+                    </a>
+                  </li>
+
+                  <li className="nav-item text-center">
+                    <button
+                      className="nav-link btn btn-link text-fourth-color funky-font"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
+            </ul>
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

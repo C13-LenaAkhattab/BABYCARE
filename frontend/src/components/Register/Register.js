@@ -200,6 +200,10 @@ const Register = () => {
                 placeholder="Enter baby's first name"
               />
             </div>
+            <div className="progress-indicator">
+  <div className={`step ${step === 1 ? 'active' : ''}`}></div>
+  <div className={`step ${step === 2 ? 'active' : ''}`}></div>
+</div>
 
             <div className="form-group">
               <label htmlFor="ageInMonths">Age in Months</label>
