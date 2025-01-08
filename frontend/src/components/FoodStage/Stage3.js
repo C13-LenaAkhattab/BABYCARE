@@ -14,25 +14,79 @@ const Stage3 = () => {
 
   const defaultRecipes = {
     1: {
-      image: "https://parentingperfect.com/wp-content/uploads/2023/03/what-does-toddler-food-look-like.jpg"
+      image: "https://www.eatyourselfskinny.com/wp-content/uploads/2020/03/quinoa-bites-5-scaled.jpg"
     },
     2: {
-      image: "https://wholesomebabyfood.momtastic.com/images/3rdStageBabyFoodPicture.jpg"
+      image: "https://www.mjandhungryman.com/wp-content/uploads/2013/02/Sweet-potato-patties.jpg"
     },
     3: {
-      image: "https://www.yummytoddlerfood.com/wp-content/uploads/2022/09/Baby-Pancakes-in-stack-on-white-plate-with-fruit.jpg"
+      image: "https://thrivingnest.com/wp-content/uploads/2021/10/avocado-ground-turkey-patties-for-baby-toddler.jpg"
     },
     4: {
-      image: "https://www.yummytoddlerfood.com/wp-content/uploads/2021/07/Baby-Cookies-in-stack-on-white-plate.jpg"
+      image: "https://img.taste.com.au/yRjBf1pX/taste/2016/11/spinach-and-cheese-muffins-81636-1.jpeg"
     },
     5: {
-      image: "https://www.yummytoddlerfood.com/wp-content/uploads/2020/04/Baby-Muffins-on-white-plate.jpg"
+      image: "https://www.littlebroken.com/wp-content/uploads/2018/10/Chicken-Stew-with-Butternut-Squash_-2.jpg"
     },
     6: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/08/finger_foods_9_months-14.jpg"
+      image: "https://www.hipmamasplace.com/wp-content/uploads/2021/06/199259152_166663622165057_6223652316946896551_n.jpg"
     },
     7: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/08/finger_foods_9_months-9.jpg"
+      image: "https://www.creativenourish.com/wp-content/uploads/2019/11/3-ingredient-banana-oat-pancakes-for-baby--500x500.jpg"
+    },
+    8: {
+      image: "https://hauteandhealthyliving.com/wp-content/uploads/2021/02/Sweet-Potato-Salmon-Cakes-5.jpg"
+    },
+    9: {
+      image: "https://simplegraytshirt.com/wp-content/uploads/2023/03/avocado-puree-for-babies-10.jpg"
+    },
+    10: {
+      image: "https://www.runningtothekitchen.com/wp-content/uploads/2021/11/pear-oatmeal-6.jpg"
+    },
+    11: {
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS28XEqCiKM7c1kGM9GiQX0j6Wx4zneCEbnIw&s"
+    },
+    12: {
+      image: "https://chefjulierd.com/wp-content/uploads/2015/09/IMG_0311.jpg"
+    },
+    13: {
+      image: "https://www.healthylittlefoodies.com/wp-content/uploads/2019/02/slow-cooker-beef-strew.jpg"
+    },
+    14: {
+      image: "https://www.laurafuentes.com/wp-content/uploads/2016/05/Pear-crumble-muffin_RC.jpg"
+    },
+    15: {
+      image: "https://img.taste.com.au/GX8QAi9T/taste/2016/11/chicken-bok-choy-and-baby-corn-stir-fry-28105-1.jpeg"
+    },
+    16: {
+      image: "https://plantbasedjuniors.com/wp-content/uploads/2020/11/mangochiapudding5.jpg"
+    },
+    17: {
+      image: "https://www.fitmittenkitchen.com/wp-content/uploads/2021/04/Sweet-Potato-Black-Bean-Tacos-Pins-12-683x1024.jpg"
+    },
+    18: {
+      image: "https://www.babyledfeeding.com/wp-content/uploads/2018/09/Baby-Led-weaning-breakfast-recipes-blueberry-pancakes-Recipe-Images.jpg"
+    },
+    19: {
+      image: "https://www.wellplated.com/wp-content/uploads/2019/05/Grilled-Chicken-Kabobs-Recipe.jpg"
+    },
+    20: {
+      image: "https://hips.hearstapps.com/delish/assets/cm/15/10/54f69796b2a75_-_201001-omag-superfood-sweet-potato-400x400.jpg"
+    },
+    21: {
+      image: "https://livingsweetmoments.com/wp-content/uploads/2019/01/sweet-potato-chicken-nuggets-recipe-in-process-1.jpg"
+    },
+    22: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/09/avocado_toast_baby_toddler-S.jpg"
+    },
+    23: {
+      image: "https://joyfoodsunshine.com/wp-content/uploads/2017/09/apple-pumpkin-baby-food-4.jpg"
+    },
+    24: {
+      image: "https://cdn.prod.website-files.com/5dc471bed6111eb41d6e28dd/5ea9394932900d048e9132d9_large_Spinach__and_lentil_burgers.jpeg"
+    },
+    25: {
+      image: "https://images.squarespace-cdn.com/content/v1/5f263999faf71d43a11f8ae3/1596342328276-ZIN3QABY18F9A8GYSCC3/Pear-Raspberry-Puree-7.jpg"
     }
   };
 
@@ -153,7 +207,7 @@ const Stage3 = () => {
         <div className="Stage1Info">
           <h2>Stage Three:</h2>
           <p>
-            Between 8-10 months, your baby has likely mastered Stage 2 foods and is ready for more advanced textures. 
+            Between 8-12 months, your baby has likely mastered Stage 2 foods and is ready for more advanced textures. 
             They should be able to move food from side to side in their mouth and may have started developing their pincer grasp.
           </p>
           <p>

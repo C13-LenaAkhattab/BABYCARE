@@ -112,7 +112,7 @@ const Navbar = () => {
                   <li className="nav-item text-center">
                     <a
                       className="nav-link text-fourth-color funky-font"
-                      onClick={() => navigate("/milestones")}
+                      onClick={() => navigate("/Milestones")}
                     >
                       Milestones
                     </a>

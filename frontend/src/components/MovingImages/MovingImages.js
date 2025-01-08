@@ -7,7 +7,7 @@ const MovingImages = () => {
 
   const slides = [
     {
-      title: "The Parents is open 24/7 for whenever you need to talk.",
+      title: "The Parents are open 24/7 for whenever you need to talk.",
       image: "/images/pexels-pavel-danilyuk-7055866.jpg",
       overlayPosition: "left",
     },

@@ -112,7 +112,7 @@ const Login = () => {
         
         <p className="register-text">
           Don't have an account?{" "}
-          <a onClick={() => navigate("/register")}>Create account</a>
+          <a onClick={() => navigate("/Register")}>Create account</a>
         </p>
       </div>
     </div>
