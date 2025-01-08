@@ -7,6 +7,13 @@ const AboutUs = () => {
     <div className="about-container">
       {/* Hero Section */}
       <section className="hero-section">
+      <div className="img-container">
+          <img
+            src="/images/mom.png"
+            alt="Parent Icon"
+            className="parent-icon"
+          />
+        </div>
         <h1 className="hero-title funky-font">Welcome to Mommy's World</h1>
         <p className="hero-subtitle">
           A supportive community where mothers come together to share, learn, and grow
@@ -78,12 +85,8 @@ const AboutUs = () => {
             Become part of a supportive network of mothers who understand and 
             celebrate the joys and challenges of parenthood.
           </p>
-          <button 
-            onClick={() => window.location.href = '/Login'}
-            className="join-button"
-          >
-            Sign Up Now
-          </button>
+          
+          
         </div>
 
         {/* Values Section */}

@@ -14,19 +14,85 @@ const Stage2 = () => {
 
   const defaultRecipes = {
     1: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/04/sweet_potato_combo_baby_food-4.jpg"
+      image: "https://babyfoode.com/wp-content/uploads/2017/04/spinach_apple_baby_food-7.jpg"
     },
     2: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/04/carrot_combo_baby_food-8.jpg"
+      image: "https://raisingveggielovers.com/wp-content/uploads/2020/06/peanut-butter-banana-oatmeal.jpg"
     },
     3: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/04/apple_combo_baby_food-7.jpg"
+      image: "https://www.annabelkarmel.com/wp-content/uploads/2022/01/Curried-Sweet-Potato-Lentil-Puree-scaled.jpg"
     },
     4: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/04/banana_combo_baby_food-8.jpg"
+      image: "https://www.dessertfortwo.com/wp-content/uploads/2016/02/homemade-baby-food-chicken-2.jpg"
     },
     5: {
-      image: "https://babyfoode.com/wp-content/uploads/2019/04/blueberry_combo_baby_food-7.jpg"
+      image: "https://masandpas.com/wp-content/uploads/2018/11/no-cook-baby-puree-with-blueberries-bananas-and-soft-ripe-pears-1-1440x960.jpg"
+    },
+    6: {
+      image: "https://www.buonapappa.net/wp-content/uploads/2018/04/yolk-avo-puree2.jpg"
+    },
+    7: {
+      image: "https://images.getrecipekit.com/v1622949798_Chickpea_Pumpkin_Quinoa_Puree_v326uj.jpg?aspect_ratio=1:1&quality=90"
+    },
+    8: {
+      image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/banana-and-avocado-puree-afda0ac.jpg"
+    },
+    9: {
+      image: "https://www.jennahelwig.com/wp-content/uploads/2019/04/Roast-Vegetables-e1555688242402.jpg"
+    },
+    10: {
+      image: "https://www.egginfo.co.uk/sites/default/files/styles/amp_1200x900_4_3/public/2020/07/babys-first-scrambled-egg_0.jpg?itok=OoGJZNRK"
+    },
+    11: {
+      image: "https://www.mjandhungryman.com/wp-content/uploads/2024/02/Easy-mini-pancakes.jpg"
+    },
+    12: {
+      image: "https://babyfoode.com/wp-content/uploads/2019/04/easy_peasy_5_veggie_pasta_baby-1-500x375.jpg"
+    },
+    13: {
+      image: "https://babyjourney.se/wp-content/uploads/2024/08/058023ab-9bd8-47a6-9a9b-55e84906f083-plockmat-300x225.png"
+    },
+    14: {
+      image: "https://www.organix.com/sites/hero_organix/files/2023-06/10_Banner%20-%20Organix%20-%20Recipe%20-%20Savoury%20Vegetable%20Muffins_%20Main_10%20Months_Static%20Image_Website_1080px%20by%201080px_2023_1.jpg"
+    },
+    15: {
+      image: "https://www.hauteandhealthyliving.com/wp-content/uploads/2022/03/baby-led-weaning-chicken-avocado-poppers-8.jpg"
+    },
+    16: {
+      image: "https://www.foxandbriar.com/wp-content/uploads/2019/06/Sweet-potato-black-bean-patties-for-babies-and-toddlers-3-of-6-500x500.jpg"
+    },
+    17: {
+      image: "https://www.eatingbirdfood.com/wp-content/uploads/2020/11/oatmeal-for-babies-500x500.jpg"
+    },
+    18: {
+      image: "https://www.mjandhungryman.com/wp-content/uploads/2022/02/pear-hummus-for-babies.jpg"
+    },
+    19: {
+      image: "https://www.easybabymeals.com/wp-content/uploads/2014/12/IMGP2322.DNG_.jpg"
+    },
+    20: {
+      image: "https://www.organix.com/sites/hero_organix/files/inline-images/Carousel%20-%20Organix%20-%20Recipe%20-%20Crispy%20Cauliflower%20and%20Broccoli%20Bites_Step%201_10%20Months_Static%20Image_Website_1200px%20by%20800px_2023.jpg"
+    },
+    21: {
+      image: "https://www.aldi.com.au/fileadmin/fm-dam/images/Recipes/Recipe_Images_PD/ALC7496_PD_Banana-_-Coconut-Milk-Pops.jpg"
+    },
+    22: {
+      image: "https://www.theorganicplace.com.au/wp-content/uploads/2018/07/Carrot-Patties-The-Organic-Place.jpg"
+    },
+    23: {
+      image: "https://onmykidsplate.com/wp-content/uploads/2019/12/Cucumber-Hummus-Appetizers-1.jpg"
+    },
+    24: {
+      image: "https://www.yummytoddlerfood.com/wp-content/uploads/2022/10/Turkey-Meatballs-8-horiz.jpg"
+    },
+    25: {
+      image: "https://mykidslickthebowl.com/wp-content/uploads/2024/08/baked-pears-14-1024x1024.jpg"
+    },
+    26: {
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijNOhteccCWk70nBgH1fpppDNwSL-bFfpCvqIle4gtVG0uuwtBGH5Ly2hSi892ofCnmATHhJgkKIiffjcemG85l8QX7z04Sx6X5rPjDvkwpMsG65PuWCfJ6G1rJHmJ-Ig3adaz6WiF5gTY/s1600/22323769_10159306319420316_1587777902_o.jpg"
+    },
+    27: {
+      image: "https://i0.wp.com/erinpalinski.com/wp-content/uploads/2021/01/Avocado-egg-salad-recipe-pureed-baby-food.jpg?resize=1200%2C962&ssl=1"
     }
   };
 
