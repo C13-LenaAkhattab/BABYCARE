@@ -6,15 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
-    message,
-    setMessage,
     TokenState,
+    message,
+    messageType,
+    setMessage,
     setTokenState,
-    isLoggedIn,
     setisLoggedIn,
     setUserId,
     setMessageType,
-    messageType,
   } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -22,34 +21,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const checkLogin = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
       const res = await axios.post(`http://localhost:5000/users/login`, {
         email,
         password,
       });
-      
+
       setTokenState(res.data.token);
+
+      
+
       setisLoggedIn(true);
       localStorage.setItem("Token", res.data.token);
+      
+      
       localStorage.setItem("userId", res.data.userId);
       setUserId(res.data.userId);
       setMessage(res.data.message);
       setMessageType("success");
-      
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
+
+      navigate("/");
     } catch (err) {
-      if (err.response) {
-        setMessage(err.response.data.message);
-        setMessageType("error");
-      } else {
-        setMessage("An unexpected error occurred");
-        setMessageType("error");
-      }
+      setMessage(
+        err.response?.data?.message || "An unexpected error occurred"
+      );
+      setMessageType("error");
     }
   };
+
   return (
     <div className="login-container">
       <div className="login-card">
@@ -83,14 +83,14 @@ const Login = () => {
             Sign In
           </button>
         </form>
-        
+
         <div className="divider">
           <span>or continue with</span>
         </div>
-        
+
         <button
           className="google-login-btn"
-          onClick={() => console.log("Google login clicked")}
+          onClick={() => alert("Google login functionality not implemented")}
         >
           <img
             src="/images/google.png"
@@ -99,7 +99,7 @@ const Login = () => {
           />
           Google
         </button>
-        
+
         {message && (
           <p
             className={`message ${
@@ -109,10 +109,12 @@ const Login = () => {
             {message}
           </p>
         )}
-        
+
         <p className="register-text">
           Don't have an account?{" "}
-          <a onClick={() => navigate("/Register")}>Create account</a>
+          <span className="register-link" onClick={() => navigate("/Register")}>
+            Create account
+          </span>
         </p>
       </div>
     </div>

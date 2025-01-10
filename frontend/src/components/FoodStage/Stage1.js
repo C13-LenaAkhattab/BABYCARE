@@ -189,7 +189,7 @@ const Stage1 = () => {
   return (
     <div className="foodPage">
       <div className="RecipesSectionHeader">
-        <h1>R E C I P E S F O R B A B I E S</h1>
+        <h1>R E C I P E S  F O R  B A B I E S</h1>
         <p className="subtitle">Healthy, Homemade & Nutritious</p>
         <div className="header-divider"></div>
       </div>

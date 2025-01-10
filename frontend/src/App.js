@@ -13,6 +13,8 @@ import Stage3 from "./components/FoodStage/Stage3";
 import Register from "./components/Register/Register"
 import AboutUs from "./components/AboutUs/AboutUs"
 import Milestones from "./components/Milstone/index"
+import Forum from "./components/Forum/Forum"
+
 
 
 export const AppContext = createContext();
@@ -57,6 +59,7 @@ const App = () => {
           <Route path="/Register" element={<Register />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           {/* <Route path="/Milestones" element={<Milestones/>}/> */}
+          <Route path="/Forum" element={<Forum/>}/>
 
 
 

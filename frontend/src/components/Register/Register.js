@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
+import { AppContext } from '../../App';
 
 const Register = () => {
+  const {TokenState, setTokenState}=useContext(AppContext)
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [error, setError] = useState('');
@@ -83,7 +85,7 @@ const Register = () => {
       });
 
       if (response.data.success) {
-        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('Token', response.data.token);
         setStep(2);
       }
     } catch (err) {
@@ -100,9 +102,9 @@ const Register = () => {
 
     setLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('Token');
       const response = await axios.post(
-        'http://localhost:5000/baby/',
+        'http://localhost:5000/baby',
         {
           firstName: babyForm.firstName,
           ageInMonths: parseInt(babyForm.ageInMonths)

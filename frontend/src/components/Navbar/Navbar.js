@@ -139,7 +139,7 @@ const Navbar = () => {
                   <li className="nav-item text-center">
                     <a
                       className="nav-link text-fourth-color funky-font"
-                      onClick={() => navigate("/helping")}
+                      onClick={() => navigate("/Forum")}
                     >
                       Parents Helping Parents
                     </a>

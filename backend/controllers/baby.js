@@ -3,7 +3,6 @@ const BabyModel = require('../models/babySchema');
 const addBaby = (req, res) => {
     const { firstName, ageInMonths } = req.body;
     
-    // req.token.userId should be available from the middleware
     const parent = req.token.userId;
     
     if (!parent) {
