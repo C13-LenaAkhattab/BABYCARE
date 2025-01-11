@@ -9,7 +9,7 @@
 
 ---
 
-<p align="center"> An awesome Project to describe README 
+<p align="center"> Baby Care and parenting system
     <br> 
 <a href=''>Demo</a>
     <br> 
