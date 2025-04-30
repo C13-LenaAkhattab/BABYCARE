@@ -10,21 +10,9 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [User Story](#user_story)
-- [Data Flow](#data_flow)
-- [Guided By](#guided_by)
-
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
-
-Ex. Are you looking for a quick and easy way to action, action, and action? The **(name of application)** is the greatest and most accurate application to do this for you. It helps you to **(list of activities)**. The **(name of application)** provides a simple design to ensure having the best user experience.
+A web app that allows parents to access baby care resources, track developmental milestones, set reminders for essential tasks like feeding or medication, and manage daily routines—streamlining parenting responsibilities and enhancing convenience and organization.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
